@@ -16,9 +16,12 @@ package org.springframework.scala.transaction.support
  * limitations under the License.
  */
 
+import scala.collection.immutable.Map
+import scala.collection.JavaConverters._
 import org.springframework.transaction.annotation.{Isolation, Propagation}
 import org.scalatest.FunSuite
 import org.springframework.jdbc.datasource.DataSourceTransactionManager
+import org.springframework.jdbc.core.simple.SimpleJdbcTemplate
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
