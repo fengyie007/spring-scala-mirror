@@ -16,12 +16,9 @@ package org.springframework.scala.transaction.support
  * limitations under the License.
  */
 
-import scala.collection.immutable.Map
-import scala.collection.JavaConverters._
 import org.springframework.transaction.annotation.{Isolation, Propagation}
 import org.scalatest.FunSuite
 import org.springframework.jdbc.datasource.DataSourceTransactionManager
-import org.springframework.jdbc.core.simple.SimpleJdbcTemplate
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
@@ -42,7 +39,7 @@ class TransactionManagementTests extends FunSuite with TransactionManagement {
         template.update("INSERT INTO USERS(ID, FIRST_NAME, LAST_NAME) VALUES (:id, :first_name, :last_name)", 3.asInstanceOf[Integer], "John", "Johnson")
       }
     }
-    expectResult(1) {
+    assertResult(1) {
       template.queryForObject("SELECT COUNT(ID) FROM USERS WHERE ID = 3", classOf[Integer])
     }
   }
@@ -53,7 +50,7 @@ class TransactionManagementTests extends FunSuite with TransactionManagement {
         template.update("INSERT INTO USERS(ID, FIRST_NAME, LAST_NAME) VALUES (:id, :first_name, :last_name)", 4.asInstanceOf[Integer], "John", "Johnson")
       }
     }
-    expectResult(1) {
+    assertResult(1) {
       template.queryForObject("SELECT COUNT(ID) FROM USERS WHERE ID = 4", classOf[Integer])
     }
 
