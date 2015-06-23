@@ -1,3 +1,5 @@
+import java.io.File
+
 lazy val scalaMinorVersion = settingKey[String]("The minor version of Scala used to build the project.")
 lazy val springVersion = settingKey[String]("The version of Spring used to build the project.")
 
@@ -10,7 +12,7 @@ lazy val root = (project in file(".")).
     scalaMinorVersion := scalaVersion.value.split('.').take(2).mkString("."),
     javacOptions ++= Seq("-source", "1.7", "-target", "1.7", "-Xlint:-options"),
     scalacOptions ++= Seq("-feature", "-language:implicitConversions", "-language:reflectiveCalls"),
-    springVersion := "3.2.8.RELEASE",
+    springVersion := "3.2.4.RELEASE",
     libraryDependencies ++= Seq(
       "org.springframework"          %  "spring-core"             % springVersion.value,
       "org.springframework"          %  "spring-beans"            % springVersion.value,
@@ -33,9 +35,9 @@ lazy val root = (project in file(".")).
       "javax.servlet"                %  "servlet-api"             % "2.5"                        % "provided",
       "javax.inject"                 %  "javax.inject"            % "1"                          % "provided",
 
-      "org.scalatest"                %% "scalatest"               % "2.2.2"                      % "test",
-      "junit"                        %  "junit"                   % "4.10"                       % "test",
-      "org.hsqldb"                   %  "hsqldb-j5"               % "2.2.4"                      % "test",
+      "org.scalatest"                %% "scalatest"               % "2.2.4"                      % "test",
+      "junit"                        %  "junit"                   % "4.12"                       % "test",
+      "org.hsqldb"                   %  "hsqldb"                  % "2.3.2"                      % "test",
       "log4j"                        %  "log4j"                   % "1.2.16"                     % "test",
       "org.springframework"          %  "spring-aspects"          % springVersion.value          % "test"
     ),
@@ -50,5 +52,7 @@ lazy val root = (project in file(".")).
           // or just libraryDependencies.value if you don't depend on scala-swing
           libraryDependencies.value
       }
-    }
+    },
+    parallelExecution in Test := false,
+    externalDependencyClasspath in Test += new File(System.getProperty("java.home"), "lib" + File.separator + "resources.jar")
   )
