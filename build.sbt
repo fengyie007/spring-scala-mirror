@@ -8,7 +8,7 @@ lazy val root = (project in file(".")).
     organization := "org.psnively",
     name := "spring-scala",
     version := "1.0.0",
-    crossScalaVersions := Seq("2.11.7", "2.12.0-M1", "2.10.5"),
+    crossScalaVersions := Seq("2.11.7", "2.10.5"),
     scalaMinorVersion := scalaVersion.value.split('.').take(2).mkString("."),
     unmanagedSourceDirectories in Compile += (sourceDirectory in Compile).value / scalaMinorVersion.value,
     javacOptions ++= Seq("-source", "1.7", "-target", "1.7", "-Xlint:-options"),
@@ -30,7 +30,7 @@ lazy val root = (project in file(".")).
       "org.springframework"          %  "spring-web"              % springVersion.value          % "optional",
       "org.springframework"          %  "spring-test"             % springVersion.value          % "optional",
 
-      "com.fasterxml.jackson.module" %% "jackson-module-scala"    % "2.4.2"                      % "optional",
+      "com.fasterxml.jackson.module" %% "jackson-module-scala"    % "2.5.3"                      % "optional",
 
       "org.apache.geronimo.specs"    %  "geronimo-jms_1.1_spec"   % "1.1"                        % "provided",
       "javax.servlet"                %  "servlet-api"             % "2.5"                        % "provided",
@@ -47,7 +47,7 @@ lazy val root = (project in file(".")).
         // if scala 2.11+ is used, add dependency on scala-xml module
         case Some((2, scalaMajor)) if scalaMajor >= 11 =>
           libraryDependencies.value ++ Seq(
-            "org.scala-lang.modules" %% "scala-xml" % "1.0.3"
+            "org.scala-lang.modules" %% "scala-xml" % "1.0.4"
           )
         case _ =>
           // or just libraryDependencies.value if you don't depend on scala-swing
