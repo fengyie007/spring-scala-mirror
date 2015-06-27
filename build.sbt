@@ -13,7 +13,7 @@ lazy val root = (project in file(".")).
     unmanagedSourceDirectories in Compile += (sourceDirectory in Compile).value / scalaMinorVersion.value,
     javacOptions ++= Seq("-source", "1.7", "-target", "1.7", "-Xlint:-options"),
     scalacOptions ++= Seq("-feature", "-language:implicitConversions", "-language:reflectiveCalls"),
-    springVersion := "3.2.4.RELEASE",
+    springVersion := "3.2.10.RELEASE",
     libraryDependencies ++= Seq(
       "org.springframework"          %  "spring-core"             % springVersion.value,
       "org.springframework"          %  "spring-beans"            % springVersion.value,
