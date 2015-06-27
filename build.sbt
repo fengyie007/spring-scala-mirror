@@ -7,9 +7,10 @@ lazy val root = (project in file(".")).
   settings(
     organization := "org.psnively",
     name := "spring-scala",
-    version := "1.0",
-    crossScalaVersions := Seq("2.11.6", "2.12.0-M1", "2.10.5"),
+    version := "1.0.0",
+    crossScalaVersions := Seq("2.11.7", "2.12.0-M1", "2.10.5"),
     scalaMinorVersion := scalaVersion.value.split('.').take(2).mkString("."),
+    unmanagedSourceDirectories in Compile += (sourceDirectory in Compile).value / scalaMinorVersion.value,
     javacOptions ++= Seq("-source", "1.7", "-target", "1.7", "-Xlint:-options"),
     scalacOptions ++= Seq("-feature", "-language:implicitConversions", "-language:reflectiveCalls"),
     springVersion := "3.2.4.RELEASE",
