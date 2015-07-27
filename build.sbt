@@ -56,12 +56,19 @@ lazy val root = (project in file(".")).
     (compile in Compile) := inc.Analysis.Empty,
     (compile in Test) := inc.Analysis.Empty
   ).
-  aggregate(spring_scala_3_2_10)
+  aggregate(spring_scala_3_2_10, spring_scala_3_2_14)
 
 lazy val spring_scala_3_2_10 = project.
   settings(commonSettings: _*).
   settings(
     name := "spring_scala_3.2.10",
     libraryDependencies ++= springDependencies("3.2.10.RELEASE")
+  )
+
+lazy val spring_scala_3_2_14 = project.
+  settings(commonSettings: _*).
+  settings(
+    name := "spring_scala_3.2.14",
+    libraryDependencies ++= springDependencies("3.2.14.RELEASE")
   )
 
