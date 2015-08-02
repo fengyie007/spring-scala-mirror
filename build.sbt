@@ -58,7 +58,7 @@ lazy val root = (project in file(".")).
     publishLocal := {},
     publish := {}
   ).
-  aggregate(spring_scala_3_2_10, spring_scala_3_2_14)
+  aggregate(spring_scala_3_2_10, spring_scala_3_2_14, spring_scala_4_0_9)
 
 lazy val spring_scala_3_2_10 = project.
   settings(commonSettings: _*).
@@ -74,3 +74,9 @@ lazy val spring_scala_3_2_14 = project.
     libraryDependencies ++= springDependencies("3.2.14.RELEASE")
   )
 
+lazy val spring_scala_4_0_9 = project.
+  settings(commonSettings: _*).
+  settings(
+    name := "spring_scala_4.0.9",
+    libraryDependencies ++= springDependencies("4.0.9.RELEASE")
+  )

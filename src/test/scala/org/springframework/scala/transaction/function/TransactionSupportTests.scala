@@ -50,6 +50,7 @@ class TransactionSupportTests extends FunSuite with BeforeAndAfterEach {
     }
 
     applicationContext.registerConfigurations(config)
+    applicationContext.refresh()
 
     //then
     val infrastructureAdvisorAutoProxyCreator = applicationContext.getBean(
