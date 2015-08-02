@@ -54,7 +54,9 @@ lazy val commonSettings = Seq(
 lazy val root = (project in file(".")).
   settings(
     (compile in Compile) := inc.Analysis.Empty,
-    (compile in Test) := inc.Analysis.Empty
+    (compile in Test) := inc.Analysis.Empty,
+    publishLocal := {},
+    publish := {}
   ).
   aggregate(spring_scala_3_2_10, spring_scala_3_2_14)
 
