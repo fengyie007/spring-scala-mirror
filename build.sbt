@@ -64,33 +64,38 @@ lazy val spring_scala_3_2_10 = project.
   settings(commonSettings: _*).
   settings(
     name := "spring_scala_3.2.10",
-    libraryDependencies ++= springDependencies("3.2.10.RELEASE")
+    libraryDependencies ++= springDependencies("3.2.10.RELEASE"),
+    unmanagedSourceDirectories in Compile += baseDirectory.value / ".." / "src" / "main" / "spring-pre-4.1"
   )
 
 lazy val spring_scala_3_2_14 = project.
   settings(commonSettings: _*).
   settings(
     name := "spring_scala_3.2.14",
-    libraryDependencies ++= springDependencies("3.2.14.RELEASE")
+    libraryDependencies ++= springDependencies("3.2.14.RELEASE"),
+    unmanagedSourceDirectories in Compile += baseDirectory.value / ".." / "src" / "main" / "spring-pre-4.1"
   )
 
 lazy val spring_scala_4_0_9 = project.
   settings(commonSettings: _*).
   settings(
     name := "spring_scala_4.0.9",
-    libraryDependencies ++= springDependencies("4.0.9.RELEASE")
+    libraryDependencies ++= springDependencies("4.0.9.RELEASE"),
+    unmanagedSourceDirectories in Compile += baseDirectory.value / ".." / "src" / "main" / "spring-pre-4.1"
   )
 
 lazy val spring_scala_4_1_7 = project.
   settings(commonSettings: _*).
   settings(
     name := "spring_scala_4.1.7",
-    libraryDependencies ++= springDependencies("4.1.7.RELEASE")
-  )
+    libraryDependencies ++= springDependencies("4.1.7.RELEASE"),
+    unmanagedSourceDirectories in Compile += baseDirectory.value / ".." / "src" / "main" / "spring-post-4.1"
+ )
 
 lazy val spring_scala_4_2_0 = project.
   settings(commonSettings: _*).
   settings(
     name := "spring_scala_4.2.0",
-    libraryDependencies ++= springDependencies("4.2.0.RELEASE")
+    libraryDependencies ++= springDependencies("4.2.0.RELEASE"),
+    unmanagedSourceDirectories in Compile += baseDirectory.value / ".." / "src" / "main" / "spring-post-4.1"
   )

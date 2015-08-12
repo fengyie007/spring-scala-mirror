@@ -156,7 +156,7 @@ class JdbcTemplateTests extends FunSuite {
 
   test("delegate to [int[] batchUpdate(final String[] sql)]") {
     assertResult(Seq(1, 1)) {
-      template.batchUpdate(List(UPDATE_ID_QUERY, UPDATE_ID_QUERY))
+      template.batchUpdate(UPDATE_ID_QUERY, UPDATE_ID_QUERY)
     }
   }
 

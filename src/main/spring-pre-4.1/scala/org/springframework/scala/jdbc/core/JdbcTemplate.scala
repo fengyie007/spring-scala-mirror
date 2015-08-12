@@ -263,7 +263,7 @@ class JdbcTemplate(val javaTemplate: org.springframework.jdbc.core.JdbcTemplate)
     * @throws DataAccessException if there is any problem executing the batch
     */
   @throws(classOf[DataAccessException])
-  def batchUpdate(sql: Seq[String]): Seq[Int] = {
+  def batchUpdate(sql: String*): Seq[Int] = {
     javaTemplate.batchUpdate(sql.toArray)
   }
 
