@@ -1,5 +1,41 @@
 import java.io.File
 
+publishMavenStyle := true
+
+publishTo := {
+  val nexus = "https://oss.sonatype.org/"
+  if (isSnapshot.value)
+    Some("snapshots" at nexus + "content/repositories/snapshots")
+  else
+    Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+}
+
+publishArtifact in Test := false
+
+pomIncludeRepository := { _ => false }
+
+pomExtra := (
+  <url>http://your.project.url</url>
+  <licenses>
+    <license>
+      <name>BSD-style</name>
+      <url>http://www.opensource.org/licenses/bsd-license.php</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <scm>
+    <url>git@github.com:your-account/your-project.git</url>
+    <connection>scm:git:git@github.com:your-account/your-project.git</connection>
+  </scm>
+  <developers>
+    <developer>
+      <id>you</id>
+      <name>Your Name</name>
+      <url>http://your.url</url>
+    </developer>
+  </developers>
+)
+
 def springDependencies(springVersion: String): Seq[ModuleID] = Seq(
   "org.springframework"          %  "spring-core"             % springVersion,
   "org.springframework"          %  "spring-beans"            % springVersion,
