@@ -30,8 +30,8 @@ class Darcs(val baseDir: File) extends Vcs {
       case _ => ""
     }
   }
-  def isBehindRemote: Boolean = !trackingRemote.isEmpty
-  def hasUpstream: Boolean = isBehindRemote
+  def isBehindRemote: Boolean = true
+  def hasUpstream: Boolean = !trackingRemote.isEmpty
 }
 
 object Darcs extends VcsCompanion {
