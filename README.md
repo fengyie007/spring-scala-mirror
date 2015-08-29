@@ -13,11 +13,11 @@ For more information, please refer to the [documentation on the wiki](https://gi
 
 spring-scala snapshots and releases are publishes to the Sonatype snapshot and release repositories. As of this writing (August 2015), the following versions of Spring are supported:
 
-Spring 3.2.10
-Spring 3.2.14
-Spring 4.0.9
-Spring 4.1.7
-Spring 4.2.0
+* Spring 3.2.10
+* Spring 3.2.14
+* Spring 4.0.9
+* Spring 4.1.7
+* Spring 4.2.0
 
 All artifacts are cross-published for Scala 2.10.x and 2.11.x.
 
