@@ -7,7 +7,7 @@ class Darcs(val baseDir: File) extends Vcs {
   private lazy val exec = executableName(commandName)
   val commandName: String = "darcs"
   def cmd(args: Any*): sbt.ProcessBuilder = Process(exec +: args.map(_.toString), baseDir)
-  def status: sbt.ProcessBuilder = cmd("whatsnew") #| List("fgrep", "-v", "No changes!")
+  def status: sbt.ProcessBuilder = cmd("whatsnew") #| List("fgrep", "-v", "No changes!") #|| "cat"
   def add(files: String*): sbt.ProcessBuilder = cmd(("add" +: files): _*)
   def commit(message: String): sbt.ProcessBuilder = cmd("record", "-m", message)
   def currentHash: String = {
