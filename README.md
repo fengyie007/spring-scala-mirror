@@ -28,13 +28,13 @@ In the instructions below, [`sbt`](http://vimeo.com/34436402) is assumed to be o
 The only prerequisites are [darcs](http://darcs.net) and JDK 1.7+.
 
 ### check out sources
-`darcs clone http://hub.darcs.net/psnively/spring-scala`
+darcs clone http://hub.darcs.net/psnively/spring-scala
 
 ### compile and test, build all jars, distribution zips and docs
-`sbt ';so test ;much package'           # Thanks to sbt-doge for cross-building across subprojects!`
+sbt ';so test ;much package'           # Thanks to sbt-doge for cross-building across subprojects!
 
 ### install all spring-\* jars into your local Ivy cache
-`sbt 'very publish-local'`
+sbt 'very publish-local'
 
 ... and discover more commands with `sbt tasks`. See also the [sbt FAQ](http://www.scala-sbt.org/0.13.0/docs/faq.html).
 
