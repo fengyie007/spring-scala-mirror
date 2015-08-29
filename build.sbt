@@ -1,5 +1,11 @@
 import java.io.File
 
+autoAPIMappings := true
+
+releasePublishArtifactsAction := PgpKeys.publishSigned.value
+
+releaseVcs := Darcs(baseDirectory.value)
+
 publishMavenStyle := true
 
 publishTo := {
@@ -14,24 +20,20 @@ publishArtifact in Test := false
 
 pomIncludeRepository := { _ => false }
 
+licenses := Seq("Apache 2.0" -> url("http://opensource.org/licenses/Apache-2.0"))
+
+homepage := Some(url("http://hub.darcs.net/psnively/spring-scala"))
+
 pomExtra := (
-  <url>http://your.project.url</url>
-  <licenses>
-    <license>
-      <name>BSD-style</name>
-      <url>http://www.opensource.org/licenses/bsd-license.php</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
   <scm>
-    <url>git@github.com:your-account/your-project.git</url>
-    <connection>scm:git:git@github.com:your-account/your-project.git</connection>
+    <url>http://hub.darcs.net/psnively/spring-scala</url>
+    <connection>http://hub.darcs.net/psnively/spring-scala</connection>
   </scm>
   <developers>
     <developer>
-      <id>you</id>
-      <name>Your Name</name>
-      <url>http://your.url</url>
+      <id>psnively</id>
+      <name>Paul Snively</name>
+      <url>http://hub.darcs.net/psnively</url>
     </developer>
   </developers>
 )
@@ -53,7 +55,6 @@ def springDependencies(springVersion: String): Seq[ModuleID] = Seq(
 
 lazy val commonSettings = Seq(
   organization := "org.psnively",
-  version := "1.0.0",
   crossScalaVersions := Seq("2.11.7", "2.10.5"),
   sourceDirectory := baseDirectory.value / ".." / "src",
   unmanagedSourceDirectories in Compile += (sourceDirectory in Compile).value / ("scala-" +

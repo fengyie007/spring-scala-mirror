@@ -2,8 +2,6 @@
 
 The goal of Spring Scala is to make it easier to use the Spring framework in Scala.
 
-**Note that Spring Scala is currently not maintained by Pivotal, as such there will be no further releases nor bug fixes coming from Pivotal.**
-
 Currently, the two main areas of focus are:
 
 * Wiring up Scala classes as Spring Beans, both in traditional [XML](https://github.com/SpringSource/spring-scala/wiki/Defining-Scala-Beans-in-Spring-XML) as well as [Scala](https://github.com/SpringSource/spring-scala/wiki/Functional-Bean-Configuration)
@@ -13,60 +11,36 @@ For more information, please refer to the [documentation on the wiki](https://gi
 
 ## Installation
 
-Milestones of Spring Scala are available for download at our milestone repository, http://repo.springsource.org/milestone.
+spring-scala snapshots and releases are publishes to the Sonatype snapshot and release repositories. As of this writing (August 2015), the following versions of Spring are supported:
 
-For Maven users:
+Spring 3.2.10
+Spring 3.2.14
+Spring 4.0.9
+Spring 4.1.7
+Spring 4.2.0
 
-    <repository>
-        <id>repository.springsource.milestone</id>
-        <name>SpringSource Milestone Repository</name>
-        <url>http://repo.springsource.org/milestone</url>
-    </repository>
-    ...
-    <dependency>
-        <groupId>org.springframework.scala</groupId>
-        <artifactId>spring-scala_2.10</artifactId>
-        <version>1.0.0.RC1</version>
-    </dependency>
-    
-## Snapshots
-
-Nightly snapshots of Spring Scala are available for download at our snapshot repository, http://repo.springsource.org/snapshot.
-
-For Maven users:
-
-    <repository>
-        <id>repository.springsource.snapshot</id>
-        <name>SpringSource Snapshot Repository</name>
-        <url>http://repo.springsource.org/snapshot</url>
-    </repository>
-    ...
-    <dependency>
-        <groupId>org.springframework.scala</groupId>
-        <artifactId>spring-scala_2.10</artifactId>
-        <version>1.0.0.BUILD-SNAPSHOT</version>
-    </dependency>
+All artifacts are cross-published for Scala 2.10.x and 2.11.x.
 
 ## Building from Source
 
-Spring Scala uses a [Gradle](http://gradle.org)-based build system.
-In the instructions below, [`./gradlew`](http://vimeo.com/34436402) is invoked from the root of the source tree and serves as a cross-platform, self-contained bootstrap mechanism for the build.
-The only prerequisites are [Git](http://help.github.com/set-up-git-redirect) and JDK 1.7+.
+Spring Scala uses a [sbt](http://www.scala-sbt.org)-based build system.
+In the instructions below, [`sbt`](http://vimeo.com/34436402) is assumed to be on your $PATH.
+The only prerequisites are [darcs](http://darcs.net) and JDK 1.7+.
 
 ### check out sources
-`git clone git://github.com/SpringSource/spring-scala.git`
+`darcs clone http://hub.darcs.net/psnively/spring-scala`
 
 ### compile and test, build all jars, distribution zips and docs
-`./gradlew build`
+`sbt ';so test ;much package'           # Thanks to sbt-doge for cross-building across subprojects!`
 
-### install all spring-\* jars into your local Maven cache
-`./gradlew install`
+### install all spring-\* jars into your local Ivy cache
+`sbt 'very publish-local'`
 
-... and discover more commands with `./gradlew tasks`. See also the [Gradle build and release FAQ](https://github.com/SpringSource/spring-framework/wiki/Gradle-build-and-release-FAQ).
+... and discover more commands with `sbt tasks`. See also the [sbt FAQ](http://www.scala-sbt.org/0.13.0/docs/faq.html).
 
 ## Documentation
 
-You can find out more information about this project on the [wiki](https://github.com/SpringSource/spring-scala/wiki)
+The Pivotal spring-scala wiki has not been migrated and is unlikely to be, so please add your questions/issues to the issue tracker.
 
 ## Issue Tracking
 
