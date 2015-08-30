@@ -27,8 +27,8 @@ class Darcs(val baseDir: File) extends Vcs {
     val repo = (cmd("show", "repo")!!)
     pat.findFirstMatchIn(repo).toList.headOption.map(_.group(1)).getOrElse("")
   }
-  def isBehindRemote: Boolean = !((cmd("pull", "--quiet", "--dry-run") #| List("fgrep", "-v", "No remote changes to pull in!") #|| "cat")!!).isEmpty
   def hasUpstream: Boolean = !trackingRemote.isEmpty
+  def isBehindRemote: Boolean = !((cmd("pull", "--quiet", "--dry-run") #| List("fgrep", "-v", "No remote changes to pull in!") #|| "cat")!!).isEmpty
 }
 
 object Darcs extends VcsCompanion {
