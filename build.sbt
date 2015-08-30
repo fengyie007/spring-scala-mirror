@@ -96,7 +96,7 @@ lazy val root = (project in file(".")).
     (compile in Test) := inc.Analysis.Empty,
     publishLocal := {},
     publish := {},
-    publishArtifact in (Compile, package) := false,
+    publishArtifact in (Compile, packageBin) := false,
     sources in (Compile,doc) := Seq.empty,
     publishArtifact in (Compile, packageDoc) := false
   ).
