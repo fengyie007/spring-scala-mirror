@@ -95,7 +95,10 @@ lazy val root = (project in file(".")).
     (compile in Compile) := inc.Analysis.Empty,
     (compile in Test) := inc.Analysis.Empty,
     publishLocal := {},
-    publish := {}
+    publish := {},
+    publishArtifact in (Compile, package) := false,
+    sources in (Compile,doc) := Seq.empty,
+    publishArtifact in (Compile, packageDoc) := false
   ).
   aggregate(spring_scala_3_2_10, spring_scala_3_2_14, spring_scala_4_0_9, spring_scala_4_1_7, spring_scala_4_2_0)
 
