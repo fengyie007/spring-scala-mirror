@@ -2,6 +2,8 @@ import java.io.File
 
 autoAPIMappings := true
 
+releaseCrossBuild := true
+
 releasePublishArtifactsAction := PgpKeys.publishSigned.value
 
 releaseVcs := Darcs(baseDirectory.value)
