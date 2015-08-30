@@ -15,7 +15,7 @@ class Darcs(val baseDir: File) extends Vcs {
     (last \ "patch").head.attribute("hash").get.head.text
   }
   def pushChanges: sbt.ProcessBuilder = cmd("push")
-  def checkRemote(remote: String): sbt.ProcessBuilder = cmd("pull", remote)
+  def checkRemote(remote: String): sbt.ProcessBuilder = "true"
   def tag(name: String,comment: String,force: Boolean): sbt.ProcessBuilder = cmd("tag", "-m", comment, name)
   def existsTag(name: String): Boolean = {
     val tags = (cmd("show", "tags")!!).split('\n')
@@ -27,7 +27,7 @@ class Darcs(val baseDir: File) extends Vcs {
     val repo = (cmd("show", "repo")!!)
     pat.findFirstMatchIn(repo).toList.headOption.map(_.group(1)).getOrElse("")
   }
-  def isBehindRemote: Boolean = true
+  def isBehindRemote: Boolean = ((cmd("pull", "--quiet", "--dry-run") #| List("fgrep", "-v", "No remote changes to pull in!") #|| "cat")!!).notEmpty
   def hasUpstream: Boolean = !trackingRemote.isEmpty
 }
 
