@@ -23,12 +23,9 @@ class Darcs(val baseDir: File) extends Vcs {
   }
   def currentBranch: String = ""
   def trackingRemote: String = {
-    val pat = "^Default Remote\\: (.+)$".r
+    val pat = """Default Remote: (.+)\n""".r
     val repo = (cmd("show", "repo")!!)
-    repo match {
-      case pat(remote) => remote
-      case _ => ""
-    }
+    pat.findFirstMatchIn(repo).toList.headOption.map(_.group(1)).getOrElse("")
   }
   def isBehindRemote: Boolean = true
   def hasUpstream: Boolean = !trackingRemote.isEmpty
