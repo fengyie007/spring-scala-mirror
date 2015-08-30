@@ -2,8 +2,6 @@ import java.io.File
 
 autoAPIMappings := true
 
-releaseCrossBuild := true
-
 releasePublishArtifactsAction := PgpKeys.publishSigned.value
 
 releaseVcs := Darcs(baseDirectory.value)
@@ -96,9 +94,11 @@ lazy val root = (project in file(".")).
     (compile in Test) := inc.Analysis.Empty,
     publishLocal := {},
     publish := {},
-    publishArtifact in (Compile, packageBin) := false,
     sources in (Compile,doc) := Seq.empty,
-    publishArtifact in (Compile, packageDoc) := false
+    publishArtifact in (Compile, packageBin) := false,
+    publishArtifact in (Compile, packageSrc) := false,
+    publishArtifact in (Compile, packageDoc) := false,
+    publishArtifact in (Test, packageBin) := false
   ).
   aggregate(spring_scala_3_2_10, spring_scala_3_2_14, spring_scala_4_0_9, spring_scala_4_1_7, spring_scala_4_2_0)
 

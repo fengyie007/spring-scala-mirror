@@ -9,7 +9,7 @@ class Darcs(val baseDir: File) extends Vcs {
   def cmd(args: Any*): sbt.ProcessBuilder = Process(exec +: args.map(_.toString), baseDir)
   def status: sbt.ProcessBuilder = cmd("whatsnew") #| List("fgrep", "-v", "No changes!") #|| "cat"
   def add(files: String*): sbt.ProcessBuilder = cmd(("add" +: files): _*) #|| "cat"
-  def commit(message: String): sbt.ProcessBuilder = cmd("record", "-m", message)
+  def commit(message: String): sbt.ProcessBuilder = cmd("record", "-am", message)
   def currentHash: String = {
     val last = XML.loadString(cmd("log", "--last=1", "--xml")!!)
     (last \ "patch").head.attribute("hash").get.head.text
