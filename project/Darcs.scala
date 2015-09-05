@@ -14,7 +14,7 @@ class Darcs(val baseDir: File) extends Vcs {
     val last = XML.loadString(cmd("log", "--last=1", "--xml")!!)
     (last \ "patch").head.attribute("hash").get.head.text
   }
-  def pushChanges: sbt.ProcessBuilder = cmd("push")
+  def pushChanges: sbt.ProcessBuilder = cmd("push", "--no-interactive")
   def checkRemote(remote: String): sbt.ProcessBuilder = "true"
   def tag(name: String,comment: String,force: Boolean): sbt.ProcessBuilder = cmd("tag", "-m", comment, name)
   def existsTag(name: String): Boolean = {
