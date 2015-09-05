@@ -2,6 +2,8 @@ import java.io.File
 
 crossScalaVersions := Seq("2.11.7", "2.10.5")
 
+releaseCrossBuild := true
+
 autoAPIMappings := true
 
 releasePublishArtifactsAction := PgpKeys.publishSigned.value
