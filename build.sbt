@@ -1,5 +1,7 @@
 import java.io.File
 
+crossScalaVersions := Seq("2.11.7", "2.10.5")
+
 autoAPIMappings := true
 
 releasePublishArtifactsAction := PgpKeys.publishSigned.value
@@ -55,7 +57,6 @@ def springDependencies(springVersion: String): Seq[ModuleID] = Seq(
 
 lazy val commonSettings = Seq(
   organization := "org.psnively",
-  crossScalaVersions := Seq("2.11.7", "2.10.5"),
   sourceDirectory := baseDirectory.value / ".." / "src",
   unmanagedSourceDirectories in Compile += (sourceDirectory in Compile).value / ("scala-" +
     scalaVersion.value.split('.').take(2).mkString(".")),
