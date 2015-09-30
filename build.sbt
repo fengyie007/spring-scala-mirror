@@ -22,27 +22,6 @@ publishArtifact in Test := false
 
 pomIncludeRepository := { _ => false }
 
-pomExtra := (
-  <url>http://hub.darcs.net/psnively/spring-scala</url>
-  <licenses>
-    <license>
-      <name>Apache 2.0</name>
-      <url>http://opensource.org/licenses/Apache-2.0</url>
-    </license>
-  </licenses>
-  <scm>
-    <url>http://hub.darcs.net/psnively/spring-scala</url>
-    <connection>http://hub.darcs.net/psnively/spring-scala</connection>
-  </scm>
-  <developers>
-    <developer>
-      <id>psnively</id>
-      <name>Paul Snively</name>
-      <url>http://hub.darcs.net/psnively</url>
-    </developer>
-  </developers>
-)
-
 def springDependencies(springVersion: String): Seq[ModuleID] = Seq(
   "org.springframework"          %  "spring-core"             % springVersion,
   "org.springframework"          %  "spring-beans"            % springVersion,
@@ -90,7 +69,27 @@ lazy val commonSettings = Seq(
   },
   parallelExecution in Test := false,
   externalDependencyClasspath in Test += new File(System.getProperty("java.home"), "lib" + File.separator + "resources.jar"),
-  releasePublishArtifactsAction := PgpKeys.publishSigned.value
+  releasePublishArtifactsAction := PgpKeys.publishSigned.value,
+  pomExtra := (
+    <url>http://hub.darcs.net/psnively/spring-scala</url>
+    <licenses>
+      <license>
+        <name>Apache 2.0</name>
+        <url>http://opensource.org/licenses/Apache-2.0</url>
+      </license>
+    </licenses>
+    <scm>
+      <url>http://hub.darcs.net/psnively/spring-scala</url>
+      <connection>http://hub.darcs.net/psnively/spring-scala</connection>
+    </scm>
+    <developers>
+      <developer>
+        <id>psnively</id>
+        <name>Paul Snively</name>
+        <url>http://hub.darcs.net/psnively</url>
+      </developer>
+    </developers>
+  )
 )
 
 lazy val root = (project in file(".")).
