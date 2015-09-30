@@ -6,8 +6,6 @@ releaseCrossBuild := true
 
 autoAPIMappings := true
 
-releasePublishArtifactsAction in ThisBuild := PgpKeys.publishSigned.value
-
 releaseVcs := Darcs(baseDirectory.value)
 
 publishMavenStyle := true
@@ -91,7 +89,8 @@ lazy val commonSettings = Seq(
     }
   },
   parallelExecution in Test := false,
-  externalDependencyClasspath in Test += new File(System.getProperty("java.home"), "lib" + File.separator + "resources.jar")
+  externalDependencyClasspath in Test += new File(System.getProperty("java.home"), "lib" + File.separator + "resources.jar"),
+  releasePublishArtifactsAction := PgpKeys.publishSigned.value
 )
 
 lazy val root = (project in file(".")).
