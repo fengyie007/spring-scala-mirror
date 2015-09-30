@@ -24,11 +24,14 @@ publishArtifact in Test := false
 
 pomIncludeRepository := { _ => false }
 
-licenses := Seq("Apache 2.0" -> url("http://opensource.org/licenses/Apache-2.0"))
-
-homepage := Some(url("http://hub.darcs.net/psnively/spring-scala"))
-
 pomExtra := (
+  <url>http://hub.darcs.net/psnively/spring-scala</url>
+  <licenses>
+    <license>
+      <name>Apache 2.0</name>
+      <url>http://opensource.org/licenses/Apache-2.0</url>
+    </license>
+  </licenses>
   <scm>
     <url>http://hub.darcs.net/psnively/spring-scala</url>
     <connection>http://hub.darcs.net/psnively/spring-scala</connection>
