@@ -6,7 +6,7 @@ releaseCrossBuild := true
 
 autoAPIMappings := true
 
-releasePublishArtifactsAction := PgpKeys.publishSigned.value
+releasePublishArtifactsAction in ThisBuild := PgpKeys.publishSigned.value
 
 releaseVcs := Darcs(baseDirectory.value)
 
