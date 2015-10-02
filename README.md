@@ -19,7 +19,15 @@ spring-scala snapshots and releases are publishes to the Sonatype snapshot and r
 * Spring 4.1.7
 * Spring 4.2.0
 
-All artifacts are cross-published for Scala 2.10.x and 2.11.x.
+All artifacts are cross-published for Scala 2.10.x and 2.11.x, and digitally signed by Paul Snively, fingerprint 3002 0815 C339 E64E 9698  698A 2FB0 1967 4C7B 02B4.
+
+An example sbt dependency:
+
+```scala
+libraryDependencies += "org.psnively" %% "spring_scala_3-2-10" % "1.0.0"
+```
+
+adds a dependency on spring-scala version 1.0.0 built with Spring 3.2.10 for whatever the project's scalaVersion is.
 
 ## Building from Source
 
