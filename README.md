@@ -7,7 +7,7 @@ Currently, the two main areas of focus are:
 * Wiring up Scala classes as Spring Beans, both in traditional [XML](https://github.com/SpringSource/spring-scala/wiki/Defining-Scala-Beans-in-Spring-XML) as well as [Scala](https://github.com/SpringSource/spring-scala/wiki/Functional-Bean-Configuration)
 * Provide [Scala-friendly](https://github.com/SpringSource/spring-scala/wiki/Using-Spring-Templates-in-Scala) wrappers for the Spring templates
 
-For more information, please refer to the [documentation on the wiki](https://github.com/SpringSource/spring-scala/wiki)
+For more information, please refer to the [spring-scala JIRA site](https://jira.springsource.org/browse/SCALA), or e-mail [Paul Snively](mailto:psnively@mac.com).
 
 ## Installation
 
